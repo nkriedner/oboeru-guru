@@ -98,26 +98,13 @@ module.exports.findCode = (email) => {
     return db.query(q, params);
 };
 
-// Function for retreiving the last 10 chat messages:
-module.exports.getRecentMessages = () => {
-    const q = `
-        SELECT users.id, first_name, last_name, imageUrl, message_text, messages.created_at
-        FROM users
-        JOIN messages
-        ON messages.sender_id = users.id
-        ORDER BY messages.created_at DESC
-        LIMIT 10
-    `;
-    const params = [];
-    return db.query(q, params);
-};
-
 // Function for getting memo_content data:
-module.exports.getMemoContent = () => {
+module.exports.getMemoContent = (holder_id) => {
     const q = `
-        SELECT * FROM memo_content;
+        SELECT * FROM memo_content
+        WHERE holder_id = $1
     `;
-    const params = [];
+    const params = [holder_id];
     return db.query(q, params);
 };
 
@@ -134,12 +121,12 @@ module.exports.updateMemoLevel = (memo_id, memo_level) => {
 };
 
 // Function for adding memo content:
-module.exports.addMemoContent = (content_1, content_2) => {
+module.exports.addMemoContent = (content_1, content_2, holder_id) => {
     const q = `
-        INSERT INTO memo_content (content_1, content_2, memo_level, holder_id)
-        VALUES ($1, $2, 1, 1)
+        INSERT INTO memo_content (content_1, content_2, holder_id, memo_level)
+        VALUES ($1, $2, $3, 1)
         RETURNING *
     `;
-    const params = [content_1, content_2];
+    const params = [content_1, content_2, holder_id];
     return db.query(q, params);
 };

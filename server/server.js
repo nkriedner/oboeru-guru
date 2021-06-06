@@ -397,7 +397,7 @@ app.get("/user", (req, res) => {
 // Get-memo-content GET route:
 app.get("/get-memo-content", (req, res) => {
     console.log("GET request to /get-memo-content route");
-    getMemoContent()
+    getMemoContent(req.session.userId)
         .then((result) => {
             console.log("Successfully received memo-content");
             // console.log("result.rows from getMemoContent():", result.rows);
@@ -428,7 +428,11 @@ app.post("/update-memo-level", (req, res) => {
 app.post("/add-memo-content", (req, res) => {
     console.log("POST request to /add-memo-content");
     console.log(req.body);
-    addMemoContent(req.body["content_1"], req.body["content_2"])
+    addMemoContent(
+        req.body["content_1"],
+        req.body["content_2"],
+        req.session.userId
+    )
         .then((result) => {
             console.log(
                 "Memo content successfully added on /add-memo-content route"

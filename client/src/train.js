@@ -205,7 +205,7 @@ export default class Train extends React.Component {
         });
     }
     updateMemoListsLength(listNumber) {
-        console.log("memoList: ", this.state.memoList);
+        // console.log("memoList: ", this.state.memoList);
 
         // Use filter to get the number of items in each item list:
         const memoListLevel1 = this.state.memoList.filter((val) => {
