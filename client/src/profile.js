@@ -1,4 +1,3 @@
-import Profilepic from "./profile-pic";
 import BioEditor from "./bio-editor";
 
 export default function Profile(props) {

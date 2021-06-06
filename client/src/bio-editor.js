@@ -10,7 +10,7 @@ export default class BioEditor extends React.Component {
     }
     componentDidMount() {
         console.log("bio-editor successfully mounted");
-        console.log("bio-editor props: ", this.props);
+        // console.log("bio-editor props: ", this.props);
     }
     handleChange({ target }) {
         // console.log(target.name, target.value);

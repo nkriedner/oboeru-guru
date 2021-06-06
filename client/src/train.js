@@ -6,9 +6,7 @@ export default class Train extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            // cardQuestion: "QUESTION",
             cardQuestion: "START ⬇️",
-            // cardAnswer: "ANSWER",
             cardAnswer: "START ⬇️",
             currentCard: {},
             currentLevel: "Mix",
@@ -38,7 +36,7 @@ export default class Train extends React.Component {
             .get("/get-memo-content")
             .then((data) => {
                 console.log("axios request to /get-memo-content successful");
-                console.log("memo list data:", data.data.data);
+                // console.log("memo list data:", data.data.data);
 
                 this.setState({
                     memoList: data.data.data,
@@ -64,7 +62,7 @@ export default class Train extends React.Component {
                     this.state[`memoList${this.state.currentLevel}`],
             });
         }
-        console.log("currentMemoList:", this.state.currentMemoList);
+        // console.log("currentMemoList:", this.state.currentMemoList);
     }
     toggleCard(e) {
         console.log("Card was clicked");
@@ -108,9 +106,12 @@ export default class Train extends React.Component {
             })
             .then((data) => {
                 console.log(
-                    "data from axios request to /update-memo-level: ",
-                    data
+                    "Axios request to /update-memo-level route successfull"
                 );
+                // console.log(
+                //     "data from axios request to /update-memo-level: ",
+                //     data
+                // );
             })
             .catch((err) => {
                 console.log(
@@ -119,7 +120,7 @@ export default class Train extends React.Component {
             });
     }
     memoLevelUp() {
-        console.log("memo-level: ", this.state.currentCard["memo_level"]);
+        // console.log("memo-level: ", this.state.currentCard["memo_level"]);
         // Level up the memo_level (if it is less than 5):
         if (this.state.currentCard["memo_level"] < 5) {
             // Increase the memo level of the card:
@@ -147,7 +148,8 @@ export default class Train extends React.Component {
             });
         }
 
-        console.log("memo-level: ", this.state.currentCard["memo_level"]);
+        // console.log("memo-level: ", this.state.currentCard["memo_level"]);
+
         // Update memo-level in database:
         this.updateMemoLevel();
         this.getMemoContent(); // new
@@ -156,7 +158,8 @@ export default class Train extends React.Component {
     switchMemoLevel(e) {
         console.log("switchMemoLevel was clicked");
 
-        console.log(e.target.textContent);
+        // console.log(e.target.textContent);
+
         // Remove highlighting class from previous memo level
         document
             .getElementsByClassName("active-memo-level")[0]
@@ -309,12 +312,6 @@ export default class Train extends React.Component {
                 {/* NO, NEXT and YES buttons */}
                 <div className="flex-center">
                     <div className="flex card-width">
-                        {/* <button
-                            onClick={() => this.memoLevelDown()}
-                            className="red-button"
-                        >
-                            NO
-                        </button> */}
                         <button
                             onClick={() => this.memoLevelDown()}
                             className="red-button"
@@ -328,7 +325,6 @@ export default class Train extends React.Component {
                             NEXT
                         </button>
                         <button onClick={() => this.memoLevelUp()}>✔️</button>
-                        {/* <button onClick={() => this.memoLevelUp()}>YES</button> */}
                     </div>
                 </div>
             </div>

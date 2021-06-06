@@ -1,5 +1,5 @@
 export default function Profilepic(props) {
-    // console.log("profile-pic functional component loaded");
+    console.log("profile-pic functional component loaded");
     // console.log("profile-pic props: ", props);
     return (
         <div>

@@ -20,14 +20,15 @@ export default class App extends React.Component {
         this.setNewBio = this.setNewBio.bind(this);
     }
     componentDidMount() {
-        // console.log("app component successfully mounted");
+        console.log("app component successfully mounted");
         axios
             .get("/user")
             .then((data) => {
-                console.log(
-                    "response from axios request in app component: ",
-                    data
-                );
+                console.log("Received user data from /user route");
+                // console.log(
+                //     "response from axios request in app component: ",
+                //     data
+                // );
                 this.setState({
                     firstname: data.data.first_name,
                     lastname: data.data.last_name,
@@ -37,7 +38,7 @@ export default class App extends React.Component {
             })
             .catch((err) => {
                 console.log(
-                    "Error when making axios request to get users data: ",
+                    "Error when making axios request to /users route: ",
                     err
                 );
             });

@@ -4,14 +4,11 @@ import axios from "./axios";
 export default class Add extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            showQuestion: true,
-            showList: false,
-        };
+        this.state = {};
     }
     componentDidMount() {
         console.log("add component successfully mounted");
-        console.log("add component props: ", this.props);
+        // console.log("add component props: ", this.props);
 
         // Make axios request to /get-memo-content route:
         this.getMemoContent();
@@ -21,7 +18,7 @@ export default class Add extends React.Component {
             .get("/get-memo-content")
             .then((data) => {
                 console.log("axios request to /get-memo-content successful");
-                console.log("memo list data:", data.data.data);
+                // console.log("memo list data:", data.data.data);
 
                 this.setState({
                     memoList: data.data.data,
@@ -35,7 +32,7 @@ export default class Add extends React.Component {
             });
     }
     handleChange({ target }) {
-        console.log(target.name, target.value);
+        // console.log(target.name, target.value);
         this.setState({
             [target.name]: target.value,
         });
@@ -54,11 +51,13 @@ export default class Add extends React.Component {
             })
             .then((response) => {
                 console.log(
-                    "response from axios request to add memo content: ",
-                    response
+                    "Axios request to /add-memo-content route successfull"
                 );
-                console.log("response.data: ", response.data);
-                // this.props.setNewBio(response.data.bio);
+                // console.log(
+                //     "response from axios request to add memo content: ",
+                //     response
+                // );
+                // console.log("response.data: ", response.data);
             })
             .catch((err) => {
                 console.log(
@@ -122,7 +121,6 @@ export default class Add extends React.Component {
                             id="content_1"
                             onChange={(e) => this.handleChange(e)}
                             name="content_1"
-                            // placeholder="Content 1"
                             placeholder="Japanese"
                             required
                         ></textarea>
@@ -130,7 +128,6 @@ export default class Add extends React.Component {
                             id="content_2"
                             onChange={(e) => this.handleChange(e)}
                             name="content_2"
-                            // placeholder="Content 2"
                             placeholder="English"
                             required
                         ></textarea>
@@ -141,9 +138,6 @@ export default class Add extends React.Component {
                 )}
                 {this.state.showlist && (
                     <>
-                        {/* <div className="list-content flex-center">
-                            <h1>Oboeru Content</h1>
-                        </div> */}
                         <div className="flex-center">
                             <table>
                                 <thead>

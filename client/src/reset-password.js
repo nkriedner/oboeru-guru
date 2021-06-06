@@ -11,7 +11,7 @@ export default class ResetPassword extends React.Component {
     }
     componentDidMount() {
         console.log("reset-password successfully mounted");
-        console.log("reset-password props: ", this.props);
+        // console.log("reset-password props: ", this.props);
     }
     handleChange({ target }) {
         this.setState({
