@@ -9,7 +9,7 @@ export default class BioEditor extends React.Component {
         };
     }
     componentDidMount() {
-        console.log("bio-editor successfully mounted");
+        console.log("content-editor successfully mounted");
         // console.log("bio-editor props: ", this.props);
     }
     handleChange({ target }) {
@@ -17,7 +17,7 @@ export default class BioEditor extends React.Component {
         this.setState({
             [target.name]: target.value,
         });
-        // console.log(target.value);
+        console.log(target.value);
     }
     submit(e) {
         console.log("Save submit button was clicked.");
@@ -28,19 +28,20 @@ export default class BioEditor extends React.Component {
         });
         axios
             .post("/update-bio", {
+                // <- CHANGE
                 bio: this.state.bio_draft,
             })
             .then((response) => {
                 console.log(
-                    "response from axios request to update bio: ",
+                    "response from axios request to update bio: ", // <- CHANGE
                     response
                 );
-                console.log("response.data.bio: ", response.data.bio);
-                this.props.setNewBio(response.data.bio);
+                console.log("response.data.bio: ", response.data.bio); // <- CHANGE
+                this.props.setNewBio(response.data.bio); // <- CHANGE
             })
             .catch((err) => {
                 console.log(
-                    "Error when sending axios request to update bio: ",
+                    "Error when sending axios request to update bio: ", // <- CHANGE
                     err
                 );
             });
@@ -51,8 +52,9 @@ export default class BioEditor extends React.Component {
         });
     }
     setNewBio(newBio) {
+        // <- CHANGE
         this.setState({
-            bio: newBio,
+            bio: newBio, // <- CHANGE
         });
     }
     render() {
@@ -61,30 +63,42 @@ export default class BioEditor extends React.Component {
                 {/* IF Text editor IS activated: */}
                 {this.state.showTexteditor && (
                     <div>
-                        <textarea
+                        <label htmlFor="content_name_1">Content Name 1:</label>
+                        <input
+                            id="content_name_1"
                             onChange={(e) => this.handleChange(e)}
-                            name="bio_draft"
-                            defaultValue={this.props.bio}
-                        ></textarea>
+                            name="content_name_1"
+                            defaultValue={this.props["content_name_1"]}
+                            placeholder="eg: Japanese"
+                        ></input>
+                        <br />
+                        <label htmlFor="content_name_2">Content Name 2:</label>
+                        <input
+                            id="content_name_2"
+                            onChange={(e) => this.handleChange(e)}
+                            name="content_name_2"
+                            defaultValue={this.props["content_name_1"]}
+                            placeholder="eg: English"
+                        ></input>
                     </div>
                 )}
-                {/* IF there is NO bio & Text editor is NOT activated: */}
-                {!this.props.bio && !this.state.showTexteditor && (
+                {/* IF there are NO content-names & Text editor is NOT activated: */}
+                {!this.props.content_name_1 && !this.state.showTexteditor && (
                     <div>
                         <button onClick={(e) => this.toggleTextEditor()}>
-                            Add Bio
+                            Add Content-Names
                         </button>
                     </div>
                 )}
-                {/* IF there is a bio & Text editor is activated: */}
+                {/* IF there is at least one content-name & Text editor is activated: */}
                 {this.props.bio && !this.state.showTexteditor && (
                     <div>
                         <button onClick={(e) => this.toggleTextEditor()}>
-                            Edit Bio
+                            Edit Content-Names
                         </button>
                     </div>
                 )}
-                {/* IF there is NO bio & Text editor IS activated: */}
+                {/* IF there is NO content-name & Text editor IS activated: */}
                 {this.state.showTexteditor && (
                     <div>
                         <button onClick={(e) => this.submit(e)}>Save</button>

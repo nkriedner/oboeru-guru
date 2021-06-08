@@ -12,7 +12,8 @@ export default function Profile(props) {
             />
             <div className="margin-left-3">
                 <h2>
-                    {props.firstname} {props.lastname}
+                    {/* {props.firstname} {props.lastname} */}
+                    Content Setting
                 </h2>
                 <p className="p-style-1">{props.bio}</p>
                 <BioEditor bio={props.bio} setNewBio={props.setNewBio} />
