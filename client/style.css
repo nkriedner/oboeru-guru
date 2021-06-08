@@ -32,12 +32,6 @@ body {
     padding: 1rem;
 }
 
-.flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 h1,
 h2,
 h3,
@@ -52,14 +46,6 @@ h6 {
     color: #1eceff;
 }
 
-.welcome-logo {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 3px solid #1eceff;
-    font-family: "Dancing Script", cursive;
-}
-
 h2 {
     margin-bottom: 1rem;
 }
@@ -69,26 +55,50 @@ p {
     margin-bottom: 1.5rem;
 }
 
+/*******************/
+/* UTILITY CLASSES */
+/*******************/
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.transparent {
+    color: transparent;
+}
+
+.welcome-links {
+    color: #24ca85;
+    text-decoration: underline;
+}
+
+/*******************/
+/* MAIN COMPONENTS */
+/*******************/
+
+.welcome-logo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #1eceff;
+    font-family: "Dancing Script", cursive;
+}
+
 .banner-top {
     min-height: 250px;
 }
 
-.banner-top button {
-    display: block;
-    margin: auto;
-    margin-top: 0.5rem;
-}
+/*********************************************/
+/* FORM STYLEING FOR REGISTRATION, LOGIN ETC */
+/*********************************************/
 
-.logo {
-    width: 200px;
-}
-
-.logo a {
-    display: block;
-    padding-top: 1rem;
-}
-
-/* Form Styling */
 form {
     display: flex;
     flex-direction: column;
@@ -114,10 +124,7 @@ button {
     color: red;
 }
 
-.flex {
-    display: flex;
-    justify-content: space-between;
-}
+/* more... */
 
 .profile-img {
     width: 100px;
@@ -184,37 +191,8 @@ textarea {
     height: 7.5rem;
 }
 
-.other-user-img {
-    width: 100px;
-}
-
 ul {
     list-style: none;
-}
-
-.chat-room {
-    max-width: 75%;
-    margin: 0.5rem auto;
-}
-
-.chat-room ul li {
-    padding: 0.5rem;
-    border: 1px solid #000046;
-    background-color: #a5e1f1;
-}
-
-.chat-room a {
-    text-decoration: none;
-    color: black;
-}
-
-.chat-room .other-user-img {
-    width: 50px;
-}
-
-.chat-messages {
-    height: 700px;
-    overflow-y: auto;
 }
 
 .navbar {
@@ -290,14 +268,9 @@ a {
     color: black;
 }
 
-.transparent {
-    color: transparent;
-}
-
-.welcome-links {
-    color: #24ca85;
-    text-decoration: underline;
-}
+/***************************/
+/* TRAIN COMPONENT STYLING */
+/***************************/
 
 .memo-card-outer-container {
     width: 100vw;
@@ -426,9 +399,22 @@ a {
     padding-left: 0.3rem;
 }
 
+.current-memo-level-display {
+    position: relative;
+    top: -15px;
+    display: inline-block;
+    background-color: #1eceff;
+    padding: 0.25rem 0.35rem;
+    border-radius: 5px;
+    font-size: 1.3rem;
+}
+
+/***********************/
+/* ADD CONTENT STYLING */
+/***********************/
+
 .content-add-form {
     width: 500px;
-    height: 600px;
     margin: auto;
     max-width: 100%;
 }
@@ -444,12 +430,7 @@ a {
 }
 
 .content-add-form textarea:focus {
-    /* border-width: 5px; */
     border-color: #c50c15;
-    /* border-color: #10955e; */
-    /* border-color: orange; */
-    /* background-color: rgb(238, 232, 149); */
-    /* background-color: #c50c15; */
 }
 
 textarea::placeholder {
@@ -462,45 +443,28 @@ textarea::placeholder {
     color: #83060d;
 }
 
-.extra-memo-level-display {
-    position: relative;
-    top: -15px;
-    display: inline-block;
-    background-color: #1eceff;
-    padding: 0.25rem 0.35rem;
-    border-radius: 5px;
-    font-size: 1.3rem;
-}
-
-.list-content {
-    /* width: 600px;
-    margin: auto; */
-}
+/******************************/
+/* LIST CONTENT TABLE STYLING */
+/******************************/
 
 .flex-center table {
-    background-color: #1eceff;
     background-color: hsl(193, 100%, 76%);
     color: #010149;
     margin-top: 2rem;
-    font-size: 2rem;
     border: 2px solid #010149;
-    border-collapse: collapse;
+    border-collapse: collapse; /* to bring all table borders together */
     width: 600px;
-    /* border-radius: 20px; */
 }
 
 td,
 th {
     padding: 1rem;
     border: 2px solid #010149;
-    /* border-radius: 20px; */
 }
 
 th {
-    background-color: #119ac0;
     background-color: #1eceff;
     font-size: 1.76rem;
-    /* font-family: "Dancing Script", cursive; */
 }
 
 td {

@@ -286,7 +286,7 @@ export default class Train extends React.Component {
 
                 {/* Display of current memo level (above card) */}
                 <div>
-                    <div className="extra-memo-level-display">
+                    <div className="current-memo-level-display">
                         Memo-Level: {this.state.currentLevel}
                     </div>
                 </div>

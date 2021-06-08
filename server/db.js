@@ -103,6 +103,7 @@ module.exports.getMemoContent = (holder_id) => {
     const q = `
         SELECT * FROM memo_content
         WHERE holder_id = $1
+        ORDER BY created_at DESC;
     `;
     const params = [holder_id];
     return db.query(q, params);
