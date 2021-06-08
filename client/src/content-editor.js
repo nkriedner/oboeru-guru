@@ -1,7 +1,7 @@
 import axios from "./axios";
 import React from "react";
 
-export default class BioEditor extends React.Component {
+export default class ContentEditor extends React.Component {
     constructor(props) {
         super(props);
         this.state = {

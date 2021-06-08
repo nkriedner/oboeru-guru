@@ -1,4 +1,5 @@
-import BioEditor from "./bio-editor";
+// import BioEditor from "./bio-editor";
+import ContentEditor from "./content-editor";
 
 export default function Profile(props) {
     console.log("profile functional component loaded");
@@ -16,7 +17,7 @@ export default function Profile(props) {
                     Content Setting
                 </h2>
                 <p className="p-style-1">{props.bio}</p>
-                <BioEditor bio={props.bio} setNewBio={props.setNewBio} />
+                <ContentEditor bio={props.bio} setNewBio={props.setNewBio} />
             </div>
         </div>
     );
