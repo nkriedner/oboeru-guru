@@ -37,6 +37,7 @@ const {
     getMemoContent,
     updateMemoLevel,
     addMemoContent,
+    addContentNames,
 } = require("./db");
 const { json } = require("express");
 // Import the following to upload files ->
@@ -442,6 +443,11 @@ app.post("/add-memo-content", (req, res) => {
         .catch((err) => {
             console.log("Error when using addMemoContent: ", err);
         });
+});
+
+app.post("/update-content-names", (req, res) => {
+    console.log("POST request to /updata-content-names route");
+    console.log(req.body);
 });
 
 // Universal GET Route:

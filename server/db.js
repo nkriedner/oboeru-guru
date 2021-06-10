@@ -131,3 +131,14 @@ module.exports.addMemoContent = (content_1, content_2, holder_id) => {
     const params = [content_1, content_2, holder_id];
     return db.query(q, params);
 };
+
+// Function for adding memo content NAMES:
+module.exports.addContentNames = (content_name_1, content_name_2) => {
+    const q = `
+        INSERT INTO memo_content (content_name_1, content_name_2)
+        VALUES ($1, $2)
+        RETURNING * 
+    `;
+    const params = [content_name_1, content_name_2];
+    return db.query(q, params);
+};
