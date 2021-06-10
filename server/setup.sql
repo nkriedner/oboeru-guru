@@ -23,6 +23,8 @@ CREATE TABLE memo_content(
     id SERIAL PRIMARY KEY,
     content_1 TEXT,
     content_2 TEXT,
+    content_name_1 TEXT,
+    content_name_2 TEXT,
     memo_level SMALLINT,
     holder_id INT REFERENCES users(id) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
